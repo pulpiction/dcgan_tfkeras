@@ -76,7 +76,8 @@ class generator(tf.keras.Model):
                             padding='SAME', use_bias=False),
             BatchNormalization(),
             LeakyReLU(alpha=0.0),
-            Conv2DTranspose(3, (5,5), (2,2), kernel_initializer=init, bias_initializer=init,                                 padding='SAME', activation='tanh')
+            Conv2DTranspose(3, (5,5), (2,2), kernel_initializer=init, bias_initializer=init,
+                            padding='SAME', activation='tanh')
         ])
         self.optimizer = tf.keras.optimizers.Adam(learning_rate=args.learn_rate, beta_1=args.beta1)
         self.loss = tf.keras.losses.BinaryCrossentropy()
